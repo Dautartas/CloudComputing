@@ -1,21 +1,8 @@
-// MongoDB Playground
-// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
-// Make sure you are connected to enable completions and to be able to run a playground.
-// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
-
-// Select the database to use.
-use('js-rentals');
-
-// The drop() command destroys all data from a collection.
-// Make sure you run it against the correct database and collection.
-db.rentals.drop();
-
-// Insert a few documents into the rentals collection.
-db.rentals.insertMany([
+[
     {
       "name": "Georgian Court",
       "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.",
-      "image": "https://picsum.photos/200",
+      "image": "",
       "price": "1000000",
       "location": "San Francisco, CA",
       "bedrooms": "3",
@@ -25,7 +12,7 @@ db.rentals.insertMany([
     {
       "name": "Brittany Court",
       "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.",
-      "image": "https://picsum.photos/200",
+      "image": "",
       "price": "3000000",
       "location": "San Francisco, CA",
       "bedrooms": "3",
@@ -35,7 +22,7 @@ db.rentals.insertMany([
     {
       "name": "Baz Homes",
       "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.",
-      "image": "https://picsum.photos/200",
+      "image": "",
       "price": "9000000",
       "location": "San Francisco, CA",
       "bedrooms": "3",
@@ -45,7 +32,7 @@ db.rentals.insertMany([
     {
       "name": "Bar Homes",
       "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.",
-      "image": "https://picsum.photos/200",
+      "image": "",
       "price": "4000000",
       "location": "San Francisco, CA",
       "bedrooms": "3",
@@ -55,7 +42,7 @@ db.rentals.insertMany([
     {
       "name": "Foo Homes",
       "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.",
-      "image": "https://picsum.photos/200",
+      "image": "",
       "price": "100000",
       "location": "San Francisco, CA",
       "bedrooms": "3",
@@ -65,11 +52,11 @@ db.rentals.insertMany([
     {
       "name": "Foo Hall",
       "description": "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quaerat.",
-      "image": "https://picsum.photos/200",
+      "image": "",
       "price": "600000",
       "location": "San Francisco, CA",
       "bedrooms": "1",
       "bathrooms": "2",
       "link": "http://www.example.com"
     }
-  ]);
+  ]

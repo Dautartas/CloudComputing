@@ -1,7 +1,0 @@
-{
-    "appService.zipIgnorePattern": [
-        "node_modules{,/**}", 
-        ".env"
-    ],
-    "appService.deploySubpath": "."
-}
