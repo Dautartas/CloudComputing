@@ -2,6 +2,8 @@ import 'dotenv/config';
 import express from 'express';
 import configureHttpServer from './services/httpserver.js';
 
+require('dotenv').config()
+
 // Create express app
 const app = express();
 
