@@ -7,16 +7,16 @@ import createError from 'http-errors';
 import multer from 'multer';
 import { fileURLToPath } from 'url';
 import {
-  viewAllRentals,
-  viewDeleteRental,
-  viewAddNewRental,
-  viewEditRental,
-  apiAllRentals,
-  apiAddNewRental,
-  apiDeleteRental,
-  apiEditRental,
-} from '../controller/rentals.controller.js';
-import { connectToDatabase } from '../model/rental.model.js';
+  viewAllParties,
+  viewDeleteParty,
+  viewAddNewParty,
+  viewEditParty,
+  apiAllParties,
+  apiAddNewParty,
+  apiDeleteParty,
+  apiEditParty,
+} from '../controller/parties.controller.js';
+import { connectToDatabase } from '../model/party.model.js';
 import { connectToBlobStorage } from '../services/blobstorage.js';
 
 
@@ -73,16 +73,16 @@ export default async (app) => {
   app.use(checkTrailingSlash);
 
   // EJS Views
-  app.get('/', viewAllRentals);
-  app.get('/rental/edit/:id', viewEditRental);
-  app.get('/rental/delete/:id', viewDeleteRental);
-  app.get('/rental/new', viewAddNewRental);
+  app.get('/', viewAllParties);
+  app.get('/party/edit/:id', viewEditParty);
+  app.get('/party/delete/:id', viewDeleteParty);
+  app.get('/party/new', viewAddNewParty);
 
   // RESTful APIs
-  app.get('/api/rentals', apiAllRentals);
-  app.patch('/api/rental/:id', uploadStrategy, apiEditRental);
-  app.delete('/api/rental/:id', apiDeleteRental);
-  app.post('/api/rental', uploadStrategy, apiAddNewRental);
+  app.get('/api/parties', apiAllParties);
+  app.patch('/api/party/:id', uploadStrategy, apiEditParty);
+  app.delete('/api/party/:id', apiDeleteParty);
+  app.post('/api/party', uploadStrategy, apiAddNewParty);
 
   // Configure error handling for routes
   app.use(on404Error);

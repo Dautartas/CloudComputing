@@ -10,7 +10,7 @@ if(!mongodbConnectionUrl
 
 let client;
 let database;
-let rentalsCollection;
+let partiesCollection;
 
 const toJson = (data) => {
   // convert _id to id and clean up
@@ -23,42 +23,42 @@ const toJson = (data) => {
   };
 };
 
-// Get all rentals from database
+// Get all parties from database
 // Transform `_id` to `id`
-export const getRentals = async () => {
-  const rentals = await rentalsCollection.find({}).toArray();
-  if (!rentals) return [];
+export const getParties = async () => {
+  const parties = await partiesCollection.find({}).toArray();
+  if (!parties) return [];
 
-  const alteredRentals = rentals.map((rental) => toJson(rental));
-  console.log(alteredRentals);
-  return alteredRentals;
+  const alteredParties = parties.map((party) => toJson(party));
+  console.log(alteredParties);
+  return alteredParties;
 };
-// Get one rental by id
-export const getRentalById = async (id) => {
+// Get one party by id
+export const getPartyById = async (id) => {
   if (!id) return null;
 
-  const rental = await rentalsCollection.findOne({ _id: new ObjectId(id) });
-  return toJson(rental);
+  const party = await partiesCollection.findOne({ _id: new ObjectId(id) });
+  return toJson(party);
 };
-// Delete one rental by id
-export const deleteRentalById = async (id) => {
+// Delete one party by id
+export const deletePartyById = async (id) => {
   if (!id) return null;
 
-  return await rentalsCollection.deleteOne({ _id: ObjectId(id) });
+  return await partiesCollection.deleteOne({ _id: ObjectId(id) });
 };
-// Add one rental
-export const addRental = async (rental) => {
-  return await rentalsCollection.insertOne(rental);
+// Add one party
+export const addParty = async (party) => {
+  return await partiesCollection.insertOne(party);
 };
-// Update one rental
+// Update one party
 // Only handles database, image changes are handled in controller
-export const updateRental = async (rental) => {
-  return await rentalsCollection.updateOne({ _id: rental.id }, { $set: rental });
+export const updateParty = async (party) => {
+  return await partiesCollection.updateOne({ _id: party.id }, { $set: party });
 };
 // Create database connection
 export const connectToDatabase = async () => {
 
-  if (!client || !database || !rentalsCollection) {
+  if (!client || !database || !partiesCollection) {
     // connect
     client = await MongoClient.connect(mongodbConnectionUrl, {
       useUnifiedTopology: true,
@@ -75,6 +75,6 @@ export const connectToDatabase = async () => {
     }
 
     // get collection
-    rentalsCollection = await database.collection(mongodbCollectionName);
+    partiesCollection = await database.collection(mongodbCollectionName);
   }
 };

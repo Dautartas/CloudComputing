@@ -6,8 +6,8 @@ import sharp from 'sharp';
 export const generateThumbnailImage = async (image) => {
   if (!image) return null;
 
-  const width = 400;
-  const height = 400;
+  const width = 200;
+  const height = 200;
 
   return await sharp(image.buffer).resize(width, height).png().toBuffer();
 };
